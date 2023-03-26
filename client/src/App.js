@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
+import Errorpage from './components/Errorpage';
 import "./App.css";
 
 function App() {
@@ -17,7 +18,11 @@ function App() {
       <Route path="/Signin" element={<Signin />} />
      
       <Route path="/Signup" element={<Signup />} />
+
+      <Route path="*" element={<Errorpage />} />
       </Routes>
+
+
     </>
   );
 }
