@@ -4,6 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 require("../db/conn");
 const User = require("../model/userSchema"); 
+const authenticate = require("../middleware/authenticate");
 
 router.get('/', (req, res) => {
     res.send(`Hello world from router`)
@@ -123,5 +124,12 @@ router.post("/signin", async  (req, res) => {
 
 
 })
+
+// page with personal data
+router.get('/',authenticate, (req, res) => {
+    console.log("About us page");
+    res.send(req.rootUser);
+});
+
 
 module.exports = router;

@@ -9,14 +9,66 @@ const Signup = () => {
     name: "", email: "", phone: "", password: "", cpassword: "",
   });
   
+  const [errors, setErrors] = useState({
+    name: "", email: "", phone: "", password: "", cpassword: "",
+  });
+
   const navigate = useNavigate();
 
   const handleInputs = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
   };
 
+  const validateInputs = () => {
+    let valid = true;
+    let newErrors = {...errors};
+
+    if (!user.name.trim()) {
+      newErrors.name = "Name is required";
+      valid = false;
+    } else {
+      newErrors.name = "";
+    }
+
+    if (!user.email.trim()) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else {
+      newErrors.email = "";
+    }
+
+    if (!user.phone.trim()) {
+      newErrors.phone = "Phone is required";
+      valid = false;
+    } else {
+      newErrors.phone = "";
+    }
+
+    if (!user.password.trim()) {
+      newErrors.password = "Password is required";
+      valid = false;
+    } else {
+      newErrors.password = "";
+    }
+
+    if (!user.cpassword.trim()) {
+      newErrors.cpassword = "Confirm Password is required";
+      valid = false;
+    } else {
+      newErrors.cpassword = "";
+    }
+
+    setErrors(newErrors);
+
+    return valid;
+  };
+
   const PostData = async (e) => {
     e.preventDefault();
+
+    if (!validateInputs()) {
+      return;
+    }
 
     const { name, email, phone, password, cpassword } = user;
 
@@ -62,61 +114,66 @@ const Signup = () => {
                   <label htmlFor="name">Name</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className={`form-control ${errors.name && "is-invalid"}`}
                     name='name'
                     autoComplete='off'
                     id="name"
                     value={user.name}
                     onChange={handleInputs}
                   />
+                  {errors.name && <div className="invalid-feedback">{errors.name}</div>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
-                    className="form-control"
+                    className={`form-control ${errors.email && "is-invalid"}`}
                     name='email'
                     autoComplete='off'
                     id="email"
                     value={user.email}
                     onChange={handleInputs}
                   />
+                  {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone</label>
                   <input
                     type="text"
                     autoComplete='off'
-                    className="form-control"
+                    className={`form-control ${errors.phone && "is-invalid"}`}
                     name='phone'
                     id="phone"
                     value={user.phone}
                     onChange={handleInputs}
                   />
+                  {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="password">Password</label>
                   <input
                     type="password"
                     autoComplete='off'
-                    className="form-control"
+                    className={`form-control ${errors.password && "is-invalid"}`}
                     name='password'
                     id="password"
                     value={user.password}
                     onChange={handleInputs}
                   />
+                  {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="cpassword">Confirm Password</label>
                   <input
                     type="password"
                     autoComplete='off'
-                    className="form-control"
+                    className={`form-control ${errors.cpassword && "is-invalid"}`}
                     name='cpassword'
                     id="cpassword"
                     value={user.cpassword}
                     onChange={handleInputs}
                   />
+                  {errors.cpassword && <div className="invalid-feedback">{errors.cpassword}</div>}
                 </div>
                 <div className="d-flex justify-content-center">
                   <button
