@@ -1,14 +1,40 @@
-import React from 'react';
+// import * as React from "react";
 
-const Home = () => {
-  return (
-    <div>
-      <p className='pt-5'>Welcome</p>
-      <h1>Track your progress, see results, and crush your fitness goals with ease!</h1>
-    </div>
-  );
-}
+// import Card from "@mui/material/Card";
 
-export default Home;
+// import CardMedia from "@mui/material/CardMedia";
 
+// import Typography from "@mui/material/Typography";
 
+// import { Button } from "@mui/material";
+
+// export default function Home() {
+//   return (
+//     <>
+//       <Typography sx={{ m: 5 }}>Welcome</Typography>
+//       <Card sx={{ maxWidth: 345, m: 5 }}>
+//         <CardMedia
+//           sx={{
+//             objectFit: " cover",
+//             objectPosition: "center",
+//             width: "90%",
+//             height: "90%",
+//             p: 1,
+//           }}
+//           component="img"
+//           //   height="194"
+//           src="/images/project.png"
+//           alt="Paella dish"
+//         />
+//       </Card>
+
+//       <Button
+//         type="submit"
+//         variant="contained"
+//         sx={{ ml: 11, width: "50%", height: "50px" }}
+//       >
+//         Add
+//       </Button>
+//     </>
+//   );
+// }

@@ -1,10 +1,11 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
+import Main from './components/Main';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
 import Errorpage from './components/Errorpage';
+import Logout from './components/logout';
 import "./App.css";
 
 function App() {
@@ -13,15 +14,16 @@ function App() {
       <Navbar/>
       <Routes>
   
-      <Route path="/" element={<Home />} />
+      <Route path="/Main" element={<Main />} />
    
-      <Route path="/Signin" element={<Signin />} />
+      <Route path="/" element={<Signin />} />
      
       <Route path="/Signup" element={<Signup />} />
 
+      <Route path="/Logout" element={<Logout />} />
+
       <Route path="*" element={<Errorpage />} />
       </Routes>
-
 
     </>
   );

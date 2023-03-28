@@ -89,7 +89,7 @@ const Signup = () => {
     } else {
       window.alert("Registration Successful");
 
-      navigate("/Signin");
+      navigate("/");
     }
   };
   return (
@@ -184,7 +184,7 @@ const Signup = () => {
                   </button>
                 </div>
                 <div className="d-flex justify-content-center mt-3">
-                  <Link to="/Signin">Already have an account? Sign in</Link>
+                  <Link to="/">Already have an account? Sign in</Link>
                 </div>
               </form>
             </div>

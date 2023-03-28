@@ -56,7 +56,7 @@ const Signin = () => {
       setErrors({ email: 'Wrong email or password', password: 'Wrong email or password' });
     } else {
       // window.alert('Signin successful');
-      navigate('/');
+      navigate('/Main');
     }
   };
 
